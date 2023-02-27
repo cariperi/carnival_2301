@@ -36,6 +36,7 @@ describe Visitor do
       @visitor1.add_preferences(:water)
 
       expect(@visitor1.preferences).to eq([:gentle, :water])
+      expect(@visitor1.preferences[0]).to be_a Symbol
     end
   end
 end
