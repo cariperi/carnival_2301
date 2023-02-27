@@ -12,6 +12,6 @@ class Ride
     @admission_fee = details[:admission_fee]
     @excitement = details[:excitement]
     @total_revenue = 0
-    @rider_log = {}
+    @rider_log = Hash.new(0)
   end
 end
