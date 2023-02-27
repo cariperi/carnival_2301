@@ -1,14 +1,15 @@
 # Carnival
 
 ## Instructions
-* Fork this Repository
-* Clone your forked repo
-* Complete the activity Below
-* Push your solution to your repo
-* Submit a Pull Request from your repo to this repo
-* In your PR, please include:
-  * Your name
-  * A reflection on how you felt you did with this challenge
+
+- Fork this Repository
+- Clone your forked repo
+- Complete the activity Below
+- Push your solution to your repo
+- Submit a Pull Request from your repo to this repo
+- In your PR, please include:
+  - Your name
+  - A reflection on how you felt you did with this challenge
 
 ## Iteration 1 - Visitors
 
@@ -18,9 +19,7 @@ Graded Items:
 2. Visitors have `preferences` and can list those preferences
 3. Visitors can check if they are tall enough for rides based on a given height threshold
 
-
 Use TDD to create a `Visitor` class that responds to the following interaction pattern:
-
 
 ```ruby
 pry(main)> require './lib/visitor'
@@ -178,16 +177,17 @@ Use TDD to create a `Carnival` class that adds the following functionality:
 1. Each carnival has a duration, as well as a way to read that data
 2. Each carnival has rides and can list those rides.
 
-Additionally, use TDD to add the following functionality to the `Carnival` class. A passing challenge will complete *at least* one of the following. We recommend completing more than one if you have time.
+Additionally, use TDD to add the following functionality to the `Carnival` class. A passing challenge will complete _at least_ one of the following. We recommend completing more than one if you have time.
 
 1. A carnival can tell us its most popular ride.
 1. A carnival can tell us its most profitable ride
 1. A carnival can calculate the total revenue earned from all its rides.
 
 ## Iteration 4
+
 1. A carnival can provide a summary hash that includes:
-   * Visitor count
-   * Revenue earned
-   * List of visitors and each visitor's favorite ride and how much total money a visitor spent
-   * List of rides and who rode each ride and the ride's total revenue
-3. The Carnival class can calculate the total revenue of all carnivals.
+   - Visitor count
+   - Revenue earned
+   - List of visitors and each visitor's favorite ride and how much total money a visitor spent
+   - List of rides and who rode each ride and the ride's total revenue
+2. The Carnival class can calculate the total revenue of all carnivals.
