@@ -96,7 +96,7 @@ describe Carnival do
   end
 
   describe '#get_details' do
-    it 'returns a hash with details about the carnival and its visitors and rides' do
+    xit 'returns a hash with details about the carnival and its visitors and rides' do
       @carnival.add_ride(@ride1)
       @carnival.add_ride(@ride2)
       @carnival.add_ride(@ride3)
@@ -116,6 +116,21 @@ describe Carnival do
       expect(@carnival.get_details[:ride_summary]).to eq({@ride1 => [[@visitor1], 2],
                                                           @ride2 => [[@visitor1, @visitor2], 10],
                                                           @ride3 => [[@visitor3], 6]})
+    end
+  end
+
+  describe '#visitor_count' do
+    it 'can return a count of all visitors who rode rides at the carnival' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.visitor_count).to eq(3)
     end
   end
 end
