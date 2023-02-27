@@ -7,7 +7,7 @@ class Visitor
   def initialize(name, height, spending_money)
     @name = name
     @height = height
-    @spending_money = spending_money.delete('$').to_i
+    @spending_money = format_spending_money(spending_money)
     @preferences = []
   end
 
@@ -17,5 +17,9 @@ class Visitor
 
   def tall_enough?(height_requirement)
     @height >= height_requirement
+  end
+
+  def format_spending_money(value)
+    value.delete('$').to_i
   end
 end
