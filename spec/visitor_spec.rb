@@ -52,4 +52,10 @@ describe Visitor do
       expect(@visitor1.tall_enough?(64)).to be false
     end
   end
+
+  describe '#format_spending_money' do
+    it 'returns a formatted amount as an integer' do
+      expect(@visitor1.format_spending_money('$5')).to eq(5)
+    end
+  end
 end
