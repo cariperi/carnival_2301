@@ -60,4 +60,23 @@ describe Carnival do
       expect(@carnival.most_popular_ride).to eq(@ride1)
     end
   end
+
+  describe '#most_profitable_ride' do
+    it 'returns the ride object for the ride that has the highest max revenue' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      @ride1.board_rider(@visitor1)
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      @ride3.board_rider(@visitor3)
+
+      expect(@ride1.total_revenue).to eq(1)
+      expect(@ride2.total_revenue).to eq(10)
+      expect(@ride3.total_revenue).to eq(2)
+
+      expect(@carnival.most_profitable_ride).to eq(@ride2)
+    end
+  end
 end
