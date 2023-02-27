@@ -1,7 +1,7 @@
 class Visitor
+  attr_accessor :spending_money
   attr_reader :name,
               :height,
-              :spending_money,
               :preferences
 
   def initialize(name, height, spending_money)

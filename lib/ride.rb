@@ -14,4 +14,12 @@ class Ride
     @total_revenue = 0
     @rider_log = Hash.new(0)
   end
+
+  def board_rider(visitor)
+    if visitor.tall_enough?(@min_height) && visitor.preferences.include?(@excitement)
+      @rider_log[visitor] += 1
+      visitor.spending_money -= @admission_fee
+      @total_revenue += @admission_fee
+    end
+  end
 end
