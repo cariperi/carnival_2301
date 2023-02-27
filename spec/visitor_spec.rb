@@ -30,12 +30,12 @@ describe Visitor do
     end
   end
 
-  describe '#add_preferences' do
+  describe '#add_preference' do
     it 'can add multiple preferences to a specific visitor' do
       expect(@visitor1.preferences).to eq([])
 
-      @visitor1.add_preferences(:gentle)
-      @visitor1.add_preferences(:water)
+      @visitor1.add_preference(:gentle)
+      @visitor1.add_preference(:water)
 
       expect(@visitor1.preferences).to eq([:gentle, :water])
       expect(@visitor1.preferences[0]).to be_a Symbol
