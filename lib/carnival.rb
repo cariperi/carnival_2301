@@ -18,4 +18,8 @@ class Carnival
   def most_profitable_ride
     @rides.max_by {|ride| ride.total_revenue}
   end
+
+  def total_ride_revenue
+    @rides.map{|ride| ride.total_revenue}.sum
+  end
 end
