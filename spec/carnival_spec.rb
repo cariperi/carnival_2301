@@ -151,4 +151,34 @@ describe Carnival do
       expect(@carnival.visitor_summary[@visitor1]).to eq(['Carousel', 7])
     end
   end
+
+  describe '#get favorite ride' do
+    it 'can return the name of a visitors favorite ride' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.get_favorite_ride(@visitor1)).to eq('Carousel')
+    end
+  end
+
+  describe '#total spend' do
+    it 'can return the total amount a visitor spent on rides' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.total_spend(@visitor1)).to eq(7)
+    end
+  end
 end
