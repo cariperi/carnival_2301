@@ -27,7 +27,7 @@ class Carnival
     details = {}
     details[:visitor_count] = visitor_count
     details[:revenue] = total_ride_revenue
-    details[:visitor_summary] = 0
+    details[:visitor_summary] = visitor_summary
     details[:ride_summary] = 0
     details
   end
@@ -65,5 +65,13 @@ class Carnival
       total_spend += (ride.rider_log[visitor] * ride.admission_fee) unless ride.nil?
     end
     total_spend
+  end
+
+  def ride_summary
+    summary = {}
+    @rides.each do |ride|
+      summary[ride] = [ride.rider_log.keys, ride.total_revenue]
+    end
+    summary
   end
 end

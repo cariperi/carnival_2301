@@ -181,4 +181,21 @@ describe Carnival do
       expect(@carnival.total_spend(@visitor1)).to eq(7)
     end
   end
+
+  describe '#ride summary' do
+    it 'can return a hash with a list of rides as keys and the visitors and total revenue as values' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.ride_summary.keys).to eq([@ride1, @ride2, @ride3])
+      expect(@carnival.ride_summary.values[0]).to be_a Array
+      expect(@carnival.ride_summary[@ride1]).to eq([[@visitor1], 2])
+    end
+  end
 end
