@@ -107,7 +107,7 @@ describe Carnival do
       3.times {@ride3.board_rider(@visitor3)}
 
       expect(@carnival.get_details).to be_a Hash
-      expect(@carnival.get_details.keys).to equal([:visitor_count, :revenue, :visitor_summary, :ride_summary])
+      expect(@carnival.get_details.keys).to eq([:visitor_count, :revenue, :visitor_summary, :ride_summary])
       expect(@carnival.get_details[:visitor_count]).to eq(3)
       expect(@carnival.get_details[:revenue]).to eq(18)
       expect(@carnival.get_details[:visitor_summary]).to eq({@visitor1 => ['Carousel', 7],
