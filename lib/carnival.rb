@@ -28,7 +28,7 @@ class Carnival
     details[:visitor_count] = visitor_count
     details[:revenue] = total_ride_revenue
     details[:visitor_summary] = visitor_summary
-    details[:ride_summary] = 0
+    details[:ride_summary] = ride_summary
     details
   end
 
