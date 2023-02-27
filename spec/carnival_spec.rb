@@ -28,4 +28,17 @@ describe Carnival do
       expect(@carnival.rides).to eq([])
     end
   end
+
+  describe '#add_ride' do
+    it 'can add multiple rides to the carnivals list of rides' do
+      expect(@carnival.rides.empty?).to be true
+
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      expect(@carnival.rides).to eq([@ride1, @ride2, @ride3])
+      expect(@carnival.rides.count).to eq(3)
+    end
+  end
 end
