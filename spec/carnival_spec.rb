@@ -94,4 +94,28 @@ describe Carnival do
       expect(@carnival.total_ride_revenue).to eq(18)
     end
   end
+
+  describe '#get_details' do
+    it 'returns a hash with details about the carnival and its visitors and rides' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.get_details).to be_a Hash
+      expect(@carnival.get_details.keys).to equal([:visitor_count, :revenue, :visitor_summary, :ride_summary])
+      expect(@carnival.get_details[:visitor_count]).to eq(3)
+      expect(@carnival.get_details[:revenue]).to eq(18)
+      expect(@carnival.get_details[:visitor_summary]).to eq({@visitor1 => ['Carousel', 7],
+                                                             @visitor2 => ['Ferris Wheel', 5],
+                                                             @visitor3 => ['Roller Coaster', 6]})
+      expect(@carnival.get_details[:ride_summary]).to eq({@ride1 => [[@visitor1], 2],
+                                                          @ride2 => [[@visitor1, @visitor2], 10],
+                                                          @ride3 => [[@visitor3], 6]})
+    end
+  end
 end
