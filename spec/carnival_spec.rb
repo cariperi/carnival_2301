@@ -96,7 +96,7 @@ describe Carnival do
   end
 
   describe '#get_details' do
-    xit 'returns a hash with details about the carnival and its visitors and rides' do
+    it 'returns a hash with details about the carnival and its visitors and rides' do
       @carnival.add_ride(@ride1)
       @carnival.add_ride(@ride2)
       @carnival.add_ride(@ride3)
