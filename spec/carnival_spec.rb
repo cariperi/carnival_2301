@@ -133,4 +133,22 @@ describe Carnival do
       expect(@carnival.visitor_count).to eq(3)
     end
   end
+
+  describe '#visitor_summary' do
+    it 'can return a hash with each visitor and their favorite ride and total money spent' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.visitor_summary.keys).to eq([@visitor1, @visitor2, @visitor3])
+      expect(@carnival.visitor_summary.values.count).to eq(3)
+      expect(@carnival.visitor_summary.values[0]).to be_a Array
+      expect(@carnival.visitor_summary[@visitor1]).to eq(['Carousel', 7])
+    end
+  end
 end
