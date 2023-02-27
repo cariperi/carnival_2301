@@ -79,4 +79,19 @@ describe Carnival do
       expect(@carnival.most_profitable_ride).to eq(@ride2)
     end
   end
+
+  describe '#total_ride_revenue' do
+    it 'returns the total revenue from all rides at the carnival' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride2)
+      @carnival.add_ride(@ride3)
+
+      2.times {@ride1.board_rider(@visitor1)}
+      @ride2.board_rider(@visitor1)
+      @ride2.board_rider(@visitor2)
+      3.times {@ride3.board_rider(@visitor3)}
+
+      expect(@carnival.total_ride_revenue).to eq(18)
+    end
+  end
 end
